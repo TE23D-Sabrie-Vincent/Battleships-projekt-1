@@ -12,3 +12,4 @@ C:\Users\vincent.sabrie\Desktop\Programmering 1\Battleships-projekt 1\Battleship
 C:\Users\vincent.sabrie\Desktop\Programmering 1\Battleships-projekt 1\Battleships-projekt 1\obj\Debug\net8.0\Battleships-projekt 1.pdb
 C:\Users\vincent.sabrie\Desktop\Programmering 1\Battleships-projekt 1\Battleships-projekt 1\obj\Debug\net8.0\Battleships-projekt 1.genruntimeconfig.cache
 C:\Users\vincent.sabrie\Desktop\Programmering 1\Battleships-projekt 1\Battleships-projekt 1\obj\Debug\net8.0\ref\Battleships-projekt 1.dll
+C:\Users\vincent.sabrie\Desktop\Programmering 1\Battleships-projekt 1\Battleships-projekt 1\obj\Debug\net8.0\Battleships-projekt 1.sourcelink.json
