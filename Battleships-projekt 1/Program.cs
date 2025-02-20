@@ -1,17 +1,22 @@
-﻿void Spelbräda()
+﻿void Spel_beskrivning()
 {
     System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
-    SkrivEttNum();
-    spelbräda();
+}
 
 
+
+string[,] bräda = new string[4, 4];
+// En 2D spelbräda som är till för skeppens positioner
+
+void Placera_skeppet(int storlek)
+{
+    int rad = 1;
+    int kolumn = 2;
 
 }
 
-string[,] bräda = new string[4, 4];
-
-void spelbräda()
+void SpelBräda()
 {
     for (int i = 0; i < 4; i++)
     {
@@ -20,8 +25,8 @@ void spelbräda()
             bräda[i, j] = "~";
         }
     }
-
 }
+//Ger 2D brädet ett värde av ~ som vatten, obs: visas inte pga det ligger i konsollen
 
 int SkrivEttNum()
 {
@@ -34,6 +39,9 @@ int SkrivEttNum()
     }
     return isAnum;
 }
+// Ser till så att man inte kan skriva bokstäver osv. 
 
-
-Spelbräda();
+Spel_beskrivning();
+SkrivEttNum();
+SpelBräda();
+Console.ReadLine();
