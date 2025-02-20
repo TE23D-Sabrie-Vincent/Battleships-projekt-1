@@ -14,6 +14,7 @@
         }
         System.Console.WriteLine($"Hej {Anv_namn} och välkommen till budget versionen av Battleships");
 }
+// metod för användarens namn
 
 void Spel_beskrivning()
 {
@@ -21,6 +22,7 @@ void Spel_beskrivning()
     System.Console.WriteLine($"Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
+//Metod med spelbeskrivningen 
 
 
 
@@ -40,7 +42,7 @@ void SpelBräda()
     {
         for (int j = 0; j < 4; j++)
         {
-            bräda[i, j] = "~";
+          bräda[i, j] = "~";
         }
     }
 }
