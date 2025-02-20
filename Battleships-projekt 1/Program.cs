@@ -1,20 +1,24 @@
 ﻿void DittNamn()
 {
+    System.Console.WriteLine("Vad är ditt namn?");
     String Anv_namn = Console.ReadLine();
     if (Anv_namn == "")
     {
         System.Console.WriteLine("Du måste heta någonting hallå :/ ");
+        Anv_namn = Console.ReadLine();
     }
         while (Anv_namn == "")
         {
         System.Console.WriteLine("Skriv ett namn nu då!!! ");
+        Anv_namn = Console.ReadLine();
         }
+        System.Console.WriteLine($"Hej {Anv_namn} och välkommen till budget versionen av Battleships");
 }
 
 void Spel_beskrivning()
 {
 
-    System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
+    System.Console.WriteLine($"Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
 
