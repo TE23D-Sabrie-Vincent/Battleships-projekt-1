@@ -1,5 +1,19 @@
-﻿void Spel_beskrivning()
+﻿void DittNamn()
 {
+    String Anv_namn = Console.ReadLine();
+    if (Anv_namn == "")
+    {
+        System.Console.WriteLine("Du måste heta någonting hallå :/ ");
+    }
+        while (Anv_namn == "")
+        {
+        System.Console.WriteLine("Skriv ett namn nu då!!! ");
+        }
+}
+
+void Spel_beskrivning()
+{
+
     System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
@@ -42,6 +56,7 @@ int SkrivEttNum()
 // Ser till så att man inte kan skriva bokstäver osv. 
 
 Spel_beskrivning();
+DittNamn();
 SkrivEttNum();
 SpelBräda();
 Console.ReadLine();
