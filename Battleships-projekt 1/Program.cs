@@ -19,7 +19,7 @@
 void Spel_beskrivning()
 {
 
-    System.Console.WriteLine($"Båt 1 har två rutor och båt 2 har tre rutor");
+    System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
 //Metod med spelbeskrivningen 
@@ -29,12 +29,12 @@ void Spel_beskrivning()
 string[,] bräda = new string[4, 4];
 // En 2D spelbräda som är till för skeppens positioner
 
-void Placera_skeppet(int storlek)
-{
-    int rad = 1;
-    int kolumn = 2;
-
-}
+// void Placera_skeppet(int storlek)
+// {
+//     int rad = 1;
+//     int kolumn = 2;
+// }
+// Inte klart än, försöker att placera skeppet i en position där parametern bestämer storleken.
 
 void SpelBräda()
 {
@@ -46,7 +46,7 @@ void SpelBräda()
         }
     }
 }
-//Ger 2D brädet ett värde av ~ som vatten, obs: visas inte pga det ligger i konsollen
+//Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y) , obs: visas inte pga det ligger i konsollen
 
 int SkrivEttNum()
 {
@@ -66,3 +66,4 @@ DittNamn();
 SkrivEttNum();
 SpelBräda();
 Console.ReadLine();
+//Påkallelse av metoderna
