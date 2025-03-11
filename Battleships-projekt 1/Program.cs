@@ -1,4 +1,6 @@
-﻿void DittNamn()
+﻿using System.Threading.Tasks.Dataflow;
+
+void DittNamn()
 {
     System.Console.WriteLine("Vad är ditt namn?");
     String Anv_namn = Console.ReadLine();
@@ -16,7 +18,7 @@
 }
 // metod för användarens namn
 
-void Spel_beskrivning()
+void SpelBeskrivning()
 {
 
     System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
@@ -27,6 +29,7 @@ void Spel_beskrivning()
 
 
 string[,] bräda = new string[4, 4];
+string[,] Visabräda = new string [4, 4];
 // En 2D spelbräda som är till för skeppens positioner
 
 // void Placera_skeppet(int storlek)
@@ -43,6 +46,7 @@ void SpelBräda()
         for (int j = 0; j < 4; j++)
         {
           bräda[i, j] = "~";
+          Console.WriteLine(Visabräda[i,j] = "~"); 
         }
     }
 }
@@ -61,7 +65,7 @@ int SkrivEttNum()
 }
 // Ser till så att man inte kan skriva bokstäver osv. 
 
-Spel_beskrivning();
+SpelBeskrivning();
 DittNamn();
 SkrivEttNum();
 SpelBräda();
