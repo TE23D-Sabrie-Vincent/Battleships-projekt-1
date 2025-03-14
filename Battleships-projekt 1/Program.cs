@@ -46,11 +46,24 @@ void SpelBräda()
         for (int j = 0; j < 4; j++)
         {
           bräda[i, j] = "~";
-          Console.WriteLine(Visabräda[i,j] = "~"); 
+          Visabräda[i,j] = "~"; 
         }
     }
 }
-//Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y) , obs: visas inte pga det ligger i konsollen
+//Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y)
+
+void VisaSpelBräda(){
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+           Console.Write(Visabräda[i,j] + " ");            
+        }
+        System.Console.WriteLine();
+    }
+}
+
+
 
 int SkrivEttNum()
 {
@@ -69,5 +82,6 @@ SpelBeskrivning();
 DittNamn();
 SkrivEttNum();
 SpelBräda();
+VisaSpelBräda();
 Console.ReadLine();
 //Påkallelse av metoderna
