@@ -1,4 +1,15 @@
-﻿using System.Threading.Tasks.Dataflow;
+﻿// while (true)
+// {
+//     if (Console.KeyAvailable)
+//     {
+//         ConsoleKey key = Console.ReadKey().Key;
+//         if (key == ConsoleKey.LeftArrow)
+//         {
+//             Console.WriteLine("yay");
+//         }
+//     }
+// }
+// If sats med arrow keys yay :D
 
 void DittNamn()
 {
@@ -9,12 +20,12 @@ void DittNamn()
         System.Console.WriteLine("Du måste heta någonting hallå :/ ");
         Anv_namn = Console.ReadLine();
     }
-        while (Anv_namn == "")
-        {
+    while (Anv_namn == "")
+    {
         System.Console.WriteLine("Skriv ett namn nu då!!! ");
         Anv_namn = Console.ReadLine();
-        }
-        System.Console.WriteLine($"Hej {Anv_namn} och välkommen till budget versionen av Battleships");
+    }
+    System.Console.WriteLine($"Hej {Anv_namn} och välkommen till budget versionen av Battleships");
 }
 // metod för användarens namn
 
@@ -29,15 +40,24 @@ void SpelBeskrivning()
 
 
 string[,] bräda = new string[4, 4];
-string[,] Visabräda = new string [4, 4];
+string[,] Visabräda = new string[4, 4];
 // En 2D spelbräda som är till för skeppens positioner
+Random SlumpBåt = new Random();
 
-// void Placera_skeppet(int storlek)
-// {
-//     int rad = 1;
-//     int kolumn = 2;
-// }
-// Inte klart än, försöker att placera skeppet i en position där parametern bestämer storleken.
+void Placera_skeppet(int storlek)
+{
+    while (true)
+    {
+        int rad = Random.Shared.Next(4);
+        int kolumn = Random.Shared.Next(4);
+
+        if (bräda[rad, kolumn] == "~")
+        {
+            bräda[rad, kolumn] = "X";
+        }
+        break;
+    }
+}
 
 void SpelBräda()
 {
@@ -45,25 +65,24 @@ void SpelBräda()
     {
         for (int j = 0; j < 4; j++)
         {
-          bräda[i, j] = "~";
-          Visabräda[i,j] = "~"; 
+            bräda[i, j] = "~";
+            Visabräda[i, j] = "~";
         }
     }
 }
 //Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y)
 
-void VisaSpelBräda(){
+void VisaSpelBräda()
+{
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-           Console.Write(Visabräda[i,j] + " ");            
+            Console.Write(Visabräda[i, j] + " ");
         }
         System.Console.WriteLine();
     }
 }
-
-
 
 int SkrivEttNum()
 {
@@ -80,8 +99,10 @@ int SkrivEttNum()
 
 SpelBeskrivning();
 DittNamn();
-SkrivEttNum();
 SpelBräda();
 VisaSpelBräda();
+// Placera_skeppet(1);
+// Placera_skeppet(1);
+SkrivEttNum();
 Console.ReadLine();
-//Påkallelse av metoderna
+//Påkallelse av metoderna  
