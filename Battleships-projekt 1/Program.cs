@@ -41,7 +41,7 @@ void SpelBeskrivning()
 
 string[,] bräda = new string[4, 4];
 string[,] Visabräda = new string[4, 4];
-// En 2D spelbräda som är till för skeppens positioner
+// En 2D spelbräda som är till för skeppens positioner                                                                                  
 Random SlumpBåt = new Random();
 
 void Placera_skeppet(int storlek)
@@ -78,7 +78,7 @@ void VisaSpelBräda()
     {
         for (int j = 0; j < 4; j++)
         {
-            Console.Write(Visabräda[i, j] + " ");
+            Console.Write(bräda[i, j] + " ");
         }
         System.Console.WriteLine();
     }
@@ -97,12 +97,30 @@ int SkrivEttNum()
 }
 // Ser till så att man inte kan skriva bokstäver osv. 
 
+bool KollaVinst()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            if (bräda[i, j] == "X") return false;
+        }
+    }
+    return true;
+}
+
 SpelBeskrivning();
+
 DittNamn();
+
 SpelBräda();
-VisaSpelBräda();
-// Placera_skeppet(1);
-// Placera_skeppet(1);
+Placera_skeppet(1);
+Placera_skeppet(1);
+KollaVinst();
 SkrivEttNum();
+
+Console.Clear();
+
+VisaSpelBräda();
 Console.ReadLine();
 //Påkallelse av metoderna  
