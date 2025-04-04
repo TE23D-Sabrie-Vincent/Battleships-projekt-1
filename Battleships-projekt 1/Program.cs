@@ -11,6 +11,8 @@
 // }
 // If sats med arrow keys yay :D
 
+
+
 void DittNamn()
 {
     System.Console.WriteLine("Vad är ditt namn?");
@@ -56,6 +58,29 @@ void Placera_skeppet(int storlek)
             bräda[rad, kolumn] = "X";
         }
         break;
+    }
+}
+
+
+while (!KollaVinst())
+{
+
+
+    int rad = -1;
+    int kolumn = -1;
+    // För att indexen inte ska börja på 0-3 men istället 1-4
+
+    string input = Console.ReadLine();
+
+    while (rad < 0 || rad >= 4 || kolumn > 0 || kolumn <= 4)
+    {
+        System.Console.WriteLine("Gissa mellan Rad 0-4");
+        int.TryParse(input, out rad);
+        System.Console.WriteLine("Gissa mellan Kolumnen 0-4");
+        int.TryParse(input, out kolumn);
+    }
+    if (bräda[rad, kolumn] == "S"){
+        
     }
 }
 
@@ -109,6 +134,8 @@ bool KollaVinst()
     return true;
 }
 
+
+
 SpelBeskrivning();
 
 DittNamn();
@@ -116,7 +143,7 @@ DittNamn();
 SpelBräda();
 Placera_skeppet(1);
 Placera_skeppet(1);
-KollaVinst();
+// KollaVinst();
 SkrivEttNum();
 
 Console.Clear();
