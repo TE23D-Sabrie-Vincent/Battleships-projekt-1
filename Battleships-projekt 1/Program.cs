@@ -38,6 +38,8 @@ void SpelBeskrivning()
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
 //Metod med spelbeskrivningen 
+DittNamn();
+SpelBeskrivning();
 
 
 
@@ -60,7 +62,7 @@ void Placera_skeppet(int storlek)
         break;
     }
 }
-
+SkrivEttNum();
 
 while (!KollaVinst())
 {
@@ -79,9 +81,11 @@ while (!KollaVinst())
         System.Console.WriteLine("Gissa mellan Kolumnen 0-4");
         int.TryParse(input, out kolumn);
     }
-    if (bräda[rad, kolumn] == "S"){
-        
-    }
+    // if (bräda[rad, kolumn] == "X"){
+    //     System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
+    // }
+    
+
 }
 
 void SpelBräda()
@@ -96,6 +100,8 @@ void SpelBräda()
     }
 }
 //Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y)
+SpelBräda();
+
 
 void VisaSpelBräda()
 {
@@ -108,6 +114,10 @@ void VisaSpelBräda()
         System.Console.WriteLine();
     }
 }
+Console.Clear();
+VisaSpelBräda();
+
+
 
 int SkrivEttNum()
 {
@@ -136,18 +146,14 @@ bool KollaVinst()
 
 
 
-SpelBeskrivning();
 
-DittNamn();
 
-SpelBräda();
+
 Placera_skeppet(1);
 Placera_skeppet(1);
 // KollaVinst();
-SkrivEttNum();
 
-Console.Clear();
 
-VisaSpelBräda();
+
 Console.ReadLine();
 //Påkallelse av metoderna  
