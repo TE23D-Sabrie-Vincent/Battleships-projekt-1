@@ -22,11 +22,6 @@ void SpelBeskrivning()
     System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
 }
-//Metod med spelbeskrivningen 
-DittNamn();
-SpelBeskrivning();
-
-
 
 string[,] bräda = new string[4, 4];
 string[,] Visabräda = new string[4, 4];
@@ -42,20 +37,17 @@ static void PlaceraSkeppet(int storlek, string[,] bräda)
 
         if (bräda[rad, kolumn] == "~")
         {
-            bräda[rad, kolumn] = "X";
+            bräda[rad, kolumn] = "S"; 
         }
         break;
     }
 }
-SkrivEttNum();
 
 while (!KollaVinst())
 {
 
-
-    int rad = -1;
-    int kolumn = -1;
-    // För att indexen inte ska börja på 0-3 men istället 1-4
+    int rad = SkrivEttNum();
+    int kolumn = SkrivEttNum();
 
     string input = Console.ReadLine();
 
@@ -69,7 +61,7 @@ while (!KollaVinst())
         kolumn--;
     }
 
-    if (bräda[rad, kolumn] == "X"){
+    if (bräda[rad, kolumn] == "S"){
         System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
     }
 
@@ -87,35 +79,32 @@ void SpelBräda()
     }
 }
 //Ger 2D brädet ett värde av ~ som vatten med i (X) och j (Y)
-SpelBräda();
 
 
 void VisaSpelBräda()
-{
+{        
+    Console.WriteLine("  1 2 3 4");
     for (int i = 0; i < 4; i++)
     {
+        Console.Write((i + 1) + " "); // Radnummer
         for (int j = 0; j < 4; j++)
         {
-            Console.Write(bräda[i, j] + " ");
+            Console.Write(Visabräda[i, j] + " ");
         }
         System.Console.WriteLine();
     }
 }
-Console.Clear();
-VisaSpelBräda();
-
-
 
 int SkrivEttNum()
 {
     string notAnum = Console.ReadLine();
     int isAnum;
-    while (!int.TryParse(notAnum, out isAnum))
+    while (!int.TryParse(notAnum, out isAnum) || isAnum < 1 || isAnum > 4)
     {
-        System.Console.WriteLine("Skriv ett nummer");
+        System.Console.WriteLine("Skriv ett nummer som är mellan 1-4");
         notAnum = Console.ReadLine();
     }
-    return isAnum;
+    return isAnum -1; //Fixar så att de blir 0
 }
 // Ser till så att man inte kan skriva bokstäver osv. 
 
@@ -125,27 +114,28 @@ bool KollaVinst()
     {
         for (int j = 0; j < 4; j++)
         {
-            if (bräda[i, j] == "X") return false;
+            if (bräda[i, j] == "S")
+            {
+                return false; // Om det finns några kvar
+            } 
         }
     }
-    return true;
+    return true; // Om alla skepp är träffade
 }
 
 
 
+//Metod med spelbeskrivningen 
+DittNamn();
+SpelBeskrivning();
 
-
-
+SkrivEttNum();
 PlaceraSkeppet(1, bräda);
-Placera_skeppet(1);
+PlaceraSkeppet(1, bräda);
 // KollaVinst();
 
-
-
+SpelBräda();
+Console.Clear();
+VisaSpelBräda();
 Console.ReadLine();
 //Påkallelse av metoderna  
-
-
-
-
-
