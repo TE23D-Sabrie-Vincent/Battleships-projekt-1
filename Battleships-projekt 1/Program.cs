@@ -61,8 +61,15 @@ while (!KollaVinst())
         kolumn--;
     }
 
-    if (bräda[rad, kolumn] == "S"){
+    if (bräda[rad, kolumn] != "~") // Om rutan inte är betecknat som vatten så har den blivit träffad
+    {
         System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
+    }
+    else if (bräda[rad, kolumn] == "S")
+    {
+        System.Console.WriteLine("Du träffade skeppet, najs");
+        Visabräda[rad, kolumn] = "X";
+        bräda[rad, kolumn] = "T"; // Markerad som T i konsollen
     }
 
 }
