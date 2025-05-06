@@ -1,33 +1,18 @@
-﻿// while (true)
-// {
-//     if (Console.KeyAvailable)
-//     {
-//         ConsoleKey key = Console.ReadKey().Key;
-//         if (key == ConsoleKey.LeftArrow)
-//         {
-//             Console.WriteLine("yay");
-//         }
-//     }
-// }
-// If sats med arrow keys yay :D
-
-
-
-void DittNamn()
+﻿void DittNamn()
 {
     System.Console.WriteLine("Vad är ditt namn?");
-    String Anv_namn = Console.ReadLine();
-    if (Anv_namn == "")
+    String anvNamn = Console.ReadLine();
+    if (anvNamn == "")
     {
         System.Console.WriteLine("Du måste heta någonting hallå :/ ");
-        Anv_namn = Console.ReadLine();
+        anvNamn = Console.ReadLine();
     }
-    while (Anv_namn == "")
+    while (anvNamn == "")
     {
         System.Console.WriteLine("Skriv ett namn nu då!!! ");
-        Anv_namn = Console.ReadLine();
+        anvNamn = Console.ReadLine();
     }
-    System.Console.WriteLine($"Hej {Anv_namn} och välkommen till budget versionen av Battleships");
+    System.Console.WriteLine($"Hej {anvNamn} och välkommen till budget versionen av Battleships");
 }
 // metod för användarens namn
 
@@ -48,7 +33,7 @@ string[,] Visabräda = new string[4, 4];
 // En 2D spelbräda som är till för skeppens positioner                                                                                  
 Random SlumpBåt = new Random();
 
-void Placera_skeppet(int storlek)
+static void PlaceraSkeppet(int storlek, string[,] bräda)
 {
     while (true)
     {
@@ -80,11 +65,13 @@ while (!KollaVinst())
         int.TryParse(input, out rad);
         System.Console.WriteLine("Gissa mellan Kolumnen 0-4");
         int.TryParse(input, out kolumn);
+        rad--;
+        kolumn--;
     }
-    // if (bräda[rad, kolumn] == "X"){
-    //     System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
-    // }
-    
+
+    if (bräda[rad, kolumn] == "X"){
+        System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
+    }
 
 }
 
@@ -149,7 +136,7 @@ bool KollaVinst()
 
 
 
-Placera_skeppet(1);
+PlaceraSkeppet(1, bräda);
 Placera_skeppet(1);
 // KollaVinst();
 
@@ -157,3 +144,8 @@ Placera_skeppet(1);
 
 Console.ReadLine();
 //Påkallelse av metoderna  
+
+
+
+
+
