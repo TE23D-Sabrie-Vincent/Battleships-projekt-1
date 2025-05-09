@@ -21,6 +21,7 @@ void SpelBeskrivning()
 
     System.Console.WriteLine("Båt 1 har två rutor och båt 2 har tre rutor");
     System.Console.WriteLine("De ligger slumpmässigt över hela 4x4 spelplanen");
+    System.Console.WriteLine("Tryck på valfri knapp för att gå vidare");
 }
 
 string[,] bräda = new string[4, 4];
@@ -41,37 +42,6 @@ static void PlaceraSkeppet(int storlek, string[,] bräda)
         }
         break;
     }
-}
-
-while (!KollaVinst())
-{
-
-    int rad = SkrivEttNum();
-    int kolumn = SkrivEttNum();
-
-    string input = Console.ReadLine();
-
-    while (rad < 0 || rad >= 4 || kolumn > 0 || kolumn <= 4)
-    {
-        System.Console.WriteLine("Gissa mellan Rad 0-4");
-        int.TryParse(input, out rad);
-        System.Console.WriteLine("Gissa mellan Kolumnen 0-4");
-        int.TryParse(input, out kolumn);
-        rad--;
-        kolumn--;
-    }
-
-    if (bräda[rad, kolumn] != "~") // Om rutan inte är betecknat som vatten så har den blivit träffad
-    {
-        System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
-    }
-    else if (bräda[rad, kolumn] == "S")
-    {
-        System.Console.WriteLine("Du träffade skeppet, najs");
-        Visabräda[rad, kolumn] = "X";
-        bräda[rad, kolumn] = "T"; // Markerad som T i konsollen
-    }
-
 }
 
 void SpelBräda()
@@ -131,17 +101,59 @@ bool KollaVinst()
 }
 
 
-
-//Metod med spelbeskrivningen 
+//Metod med spelbeskrivningen samt början av koden
 DittNamn();
 SpelBeskrivning();
-
-SkrivEttNum();
-PlaceraSkeppet(1, bräda);
-PlaceraSkeppet(1, bräda);
-// KollaVinst();
-
+Console.ReadKey();
 SpelBräda();
+PlaceraSkeppet(1, bräda);
+PlaceraSkeppet(1, bräda);
+
+while (!KollaVinst())
+{
+    Console.Clear();
+    VisaSpelBräda();
+
+    System.Console.WriteLine("Gissa på en rad från 1-4");
+    int rad = SkrivEttNum();
+
+    System.Console.WriteLine("Gissa på en kolumn från 1-4");
+    int kolumn = SkrivEttNum();
+
+
+    // string input = Console.ReadLine();
+
+    // while (rad < 0 || rad >= 4 || kolumn > 0 || kolumn <= 4)
+    // {
+    //     System.Console.WriteLine("Gissa mellan Rad 0-4");
+    //     int.TryParse(input, out rad);
+    //     System.Console.WriteLine("Gissa mellan Kolumnen 0-4");
+    //     int.TryParse(input, out kolumn);
+    //     rad--;
+    //     kolumn--;
+    // }
+
+    if (bräda[rad, kolumn] != "~") // Om rutan inte är betecknat som vatten så har den blivit träffad
+    {
+        System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
+        Console.ReadKey();
+        continue;
+    }
+    else if (bräda[rad, kolumn] == "S")
+    {
+        System.Console.WriteLine("Du träffade skeppet, najs");
+        Visabräda[rad, kolumn] = "X"; // X är ett träff obviously
+        bräda[rad, kolumn] = "T"; // Markerad som T i konsollen
+    }
+
+    else
+    {
+        System.Console.WriteLine("miss");
+        Visabräda[rad,kolumn] = "O"; // Du missade haha
+    }
+    Console.ReadKey();
+}
+
 Console.Clear();
 VisaSpelBräda();
 Console.ReadLine();
