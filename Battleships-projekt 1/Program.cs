@@ -61,12 +61,12 @@ void SpelBräda()
 void VisaSpelBräda()
 {        
     Console.WriteLine("  1 2 3 4");
-    for (int i = 0; i < 4; i++)
+    for (int k = 0; k < 4; k++)
     {
-        Console.Write((i + 1) + " "); // Radnummer
+        Console.Write(k + 1 + " "); // Radnummer
         for (int j = 0; j < 4; j++)
         {
-            Console.Write(Visabräda[i, j] + " ");
+            Console.Write(Visabräda[k, j] + " ");
         }
         System.Console.WriteLine();
     }
@@ -114,10 +114,10 @@ while (!KollaVinst())
     Console.Clear();
     VisaSpelBräda();
 
-    System.Console.WriteLine("Gissa på en rad från 1-4");
-    int rad = SkrivEttNum();
-
     System.Console.WriteLine("Gissa på en kolumn från 1-4");
+    int rad = SkrivEttNum();
+    
+    System.Console.WriteLine("Gissa på en rad från 1-4");
     int kolumn = SkrivEttNum();
 
 
@@ -133,13 +133,13 @@ while (!KollaVinst())
     //     kolumn--;
     // }
 
-    if (bräda[rad, kolumn] != "~") // Om rutan inte är betecknat som vatten så har den blivit träffad
+    if (Visabräda[rad, kolumn] != "~") // Om rutan inte är betecknat som vatten så har den blivit träffad
     {
         System.Console.WriteLine("Du har ju redan träffat den här båten bruh");
         Console.ReadKey();
         continue;
     }
-    else if (bräda[rad, kolumn] == "S")
+   if (bräda[rad, kolumn] == "S")
     {
         System.Console.WriteLine("Du träffade skeppet, najs");
         Visabräda[rad, kolumn] = "X"; // X är ett träff obviously
@@ -148,13 +148,15 @@ while (!KollaVinst())
 
     else
     {
-        System.Console.WriteLine("miss");
-        Visabräda[rad,kolumn] = "O"; // Du missade haha
+        System.Console.WriteLine("Du missade lol");
+        Visabräda[rad,kolumn] = "O"; // Du missade haha markerad med ett O
     }
     Console.ReadKey();
 }
 
 Console.Clear();
 VisaSpelBräda();
+System.Console.WriteLine("Grattis du träffade alla båtar");
+System.Console.WriteLine("Du klarade av spelet :D");
 Console.ReadLine();
 //Påkallelse av metoderna  
