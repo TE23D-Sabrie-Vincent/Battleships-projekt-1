@@ -27,7 +27,7 @@ void SpelBeskrivning()
 string[,] bräda = new string[4, 4];
 string[,] Visabräda = new string[4, 4];
 // En 2D spelbräda som är till för skeppens positioner                                                                                  
-Random SlumpBåt = new Random();
+Random SlumpBåt = new Random(); // en Slump metod så att skeppets position inte alltid är i samma ställe
 
 static void PlaceraSkeppet(int storlek, string[,] bräda)
 {
@@ -43,8 +43,10 @@ static void PlaceraSkeppet(int storlek, string[,] bräda)
         break;
     }
 }
+// En metod för som ser till att brädans ~ tecken byts ut till S för en skepp position
 
-void SpelBräda()
+
+void SpelBräda() 
 {
     for (int i = 0; i < 4; i++)
     {
@@ -59,18 +61,19 @@ void SpelBräda()
 
 
 void VisaSpelBräda()
-{        
+{
     Console.WriteLine("  1 2 3 4");
     for (int k = 0; k < 4; k++)
     {
         Console.Write(k + 1 + " "); // Radnummer
         for (int j = 0; j < 4; j++)
         {
-            Console.Write(Visabräda[k, j] + " ");
+            Console.Write(Visabräda[k, j] + " "); // Sätter lite mellanrum mellan varje ~ i arrayen
         }
-        System.Console.WriteLine();
+        System.Console.WriteLine(); // Skriver ut en tom rad
     }
 }
+// en Metod för Spelbrädan som ska visas
 
 int SkrivEttNum()
 {
@@ -99,7 +102,7 @@ bool KollaVinst()
     }
     return true; // Om alla skepp är träffade
 }
-
+// En Bool metod som undersöker om man har träffat alla skepp eller inte i 2D arrayen 
 
 //Metod med spelbeskrivningen samt början av koden
 DittNamn();
